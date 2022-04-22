@@ -1,8 +1,8 @@
-### Arch-Installation-Scripts
+# Arch-Installation-Scripts
 
-  - If needed, load your keymap
+  ### If needed, load your keymap
 
-  - Connect to the internet
+  ### Connect to the internet
 
         ```
         iwctl
@@ -12,11 +12,11 @@
         station wlan0 connect namewifi password
         ```
   
-  - Refresh the servers with pacman -Syy
+  ### Refresh the servers with pacman -Syy
 
-  - Partition the disk
+  ### Partition the disk
 
-        1. Create disk partitions
+    - Create disk partitions
 
           ```
           gdisk /dev/nvme0n1 
@@ -28,7 +28,7 @@
 
           >>> root_partition: 
 
-        2. Format boot, swap and file system partitions 
+    - Format boot, swap and file system partitions 
 
               ```
               mkfs.fat -F32 /dev/nvme0n1p1
@@ -46,13 +46,13 @@
               mkfs.etx4 /dev/nvme0n1p3
               ```
 
-        3. Mount system disk partition 
+    - Mount system disk partition 
 
               ```
               mount /dev/nvme0n1p3 /mnt
               ```
 
-        3. Create boot directory and mount 
+    - Create boot directory and mount 
 
               ```
               mkdir -p /mnt/boot/efi
@@ -62,13 +62,13 @@
               mount /dev/nvme0n1p1 /mnt/boot/efi
               ```
 
-  - Clone Arch Installation Script 
+  ### Clone Arch Installation Script 
 
       ```
       git clone https://github.com/baamboohulk/arch-scripts.git
       ```
 
-  - Install the base packages into /mnt (pacstrap /mnt base linux linux-firmware git vim amd-ucode (or intel-ucode)) and Generate fstab
+  ### Install the base packages into /mnt (pacstrap /mnt base linux linux-firmware git vim amd-ucode (or intel-ucode)) and Generate fstab
 
       ```
       cd arch-scripts
@@ -80,12 +80,12 @@
 
       Run with `./pre-chroot-base-install.sh`
 
-  - Switch to arch chroot 
+  ### Switch to arch chroot 
 
       ```
       arch-chroot /mnt
       ```
-  - Install 
+  ### Install 
 
       ```
       chmod +x post-chroot-base-install.sh
