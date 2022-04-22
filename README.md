@@ -14,7 +14,7 @@
 
   - ### Partition the disk
 
-    Create disk partitions
+    #### Create disk partitions
 
           gdisk /dev/nvme0n1 
 
@@ -25,7 +25,7 @@
 
           >>> root_partition: 
 
-    Format boot, swap and file system partitions 
+    #### Format boot, swap and file system partitions 
 
               
               mkfs.fat -F32 /dev/nvme0n1p1
