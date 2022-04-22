@@ -1,16 +1,16 @@
 # Arch-Installation-Scripts
 
-  ### If needed, load your keymap
+  - ### If needed, load your keymap
 
-  ### Connect to the internet
+  - ### Connect to the internet
 
-        ```
+        `
         iwctl
-        ```
+        `
 
-        ```
+        `
         station wlan0 connect namewifi password
-        ```
+        `
   
   ### Refresh the servers with pacman -Syy
 
