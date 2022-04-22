@@ -1,10 +1,9 @@
 ### Arch-Installation-Scripts
-      Note: For personal use
 
   - If needed, load your keymap
   - Connect to the internet
-      `iwctl`
-      `station wlan0 connect namewifi password`
+      1. `iwctl`
+      2. `station wlan0 connect namewifi password`
 
   - Refresh the servers with pacman -Syy
   - Partition the disk
