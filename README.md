@@ -16,7 +16,7 @@
 
   - Partition the disk
 
-        Create disk partitions
+        1. Create disk partitions
 
           ```
           gdisk /dev/nvme0n1 
@@ -28,7 +28,7 @@
 
           >>> root_partition: 
 
-        Format boot, swap and file system partitions 
+        2. Format boot, swap and file system partitions 
 
               ```
               mkfs.fat -F32 /dev/nvme0n1p1
@@ -46,13 +46,13 @@
               mkfs.etx4 /dev/nvme0n1p3
               ```
 
-        Mount system disk partition 
+        3. Mount system disk partition 
 
               ```
               mount /dev/nvme0n1p3 /mnt
               ```
 
-        Create boot directory and mount 
+        3. Create boot directory and mount 
 
               ```
               mkdir -p /mnt/boot/efi
