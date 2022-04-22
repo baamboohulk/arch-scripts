@@ -4,13 +4,11 @@
 
   - ### Connect to the internet
 
-        `
         iwctl
-        `
-
-        `
+        
+        
         station wlan0 connect namewifi password
-        `
+        
   
   - ### Refresh the servers with pacman -Syy
 
@@ -18,9 +16,8 @@
 
     Create disk partitions
 
-          `
           gdisk /dev/nvme0n1 
-          `
+
 
           > efi_system_partition: +300M
 
@@ -30,37 +27,31 @@
 
     Format boot, swap and file system partitions 
 
-              `
+              
               mkfs.fat -F32 /dev/nvme0n1p1
-              `
 
-              `
+              
               mkswap /dev/nvme0n1p2
-              `
-
-              `
+              
+              
               swapon /dev/nvme0n1p2
-              `
-
-              `
+              
+              
               mkfs.etx4 /dev/nvme0n1p3
-              `
+          
 
     Mount system disk partition 
 
-              `
               mount /dev/nvme0n1p3 /mnt
-              `
+              
 
     Create boot directory and mount 
 
-              `
-              mkdir -p /mnt/boot/efi
-              `
-
-              `
+              
+              mkdir -p /mnt/boot/efi 
+              
               mount /dev/nvme0n1p1 /mnt/boot/efi
-              `
+              
 
   - ### Clone Arch Installation Script 
 
