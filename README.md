@@ -3,64 +3,65 @@
   - If needed, load your keymap
 
   - Connect to the internet
-  
-      `iwctl`
-
-      `station wlan0 connect namewifi password`
-
+        ```
+        iwctl
+        station wlan0 connect namewifi password`
+        ```
   - Refresh the servers with pacman -Syy
 
   - Partition the disk
 
-      Create disk partitions
+        Create disk partitions
 
-        `gdisk /dev/nvme0n1`
+          ```gdisk /dev/nvme0n1```
 
-          > efi_system_partition: +300M
 
-          >> swap_partition: +1G 
+              > efi_system_partition: +300M
 
-          >>> root_partition: 
+              >> swap_partition: +1G 
 
-      Format boot, swap and file system partitions 
+              >>> root_partition: 
 
-        `mkfs.fat -F32 /dev/nvme0n1p1`
+          Format boot, swap and file system partitions 
 
-        `mkswap /dev/nvme0n1p2`
+              ```mkfs.fat -F32 /dev/nvme0n1p1```
 
-        `swapon /dev/nvme0n1p2`
+              ```mkswap /dev/nvme0n1p2```
 
-        `mkfs.etx4 /dev/nvme0n1p3`
+              ```swapon /dev/nvme0n1p2```
 
-      Mount system disk partition 
+              ```mkfs.etx4 /dev/nvme0n1p3```
 
-        `mount /dev/nvme0n1p3 /mnt`
+          Mount system disk partition 
 
-      Create boot directory and mount 
+              ```mount /dev/nvme0n1p3 /mnt```
 
-        `mkdir -p /mnt/boot/efi`
+          Create boot directory and mount 
 
-        `mount /dev/nvme0n1p1 /mnt/boot/efi`
+              ```mkdir -p /mnt/boot/efi```
+
+              ```mount /dev/nvme0n1p1 /mnt/boot/efi```
 
   - Clone Arch Installation Script 
 
-      `git clone https://github.com/baamboohulk/arch-scripts.git`
+      ```git clone https://github.com/baamboohulk/arch-scripts.git```
 
   - Install the base packages into /mnt (pacstrap /mnt base linux linux-firmware git vim amd-ucode (or intel-ucode)) and Generate fstab
 
-      `cd arch-scripts`
+      ```cd arch-scripts```
 
-      `chmod +x pre-chroot-base-install.sh`
+      ```chmod +x pre-chroot-base-install.sh```
 
-      Run with `./pre-chroot-base-install.sh`
+      Run with ```./pre-chroot-base-install.sh```
 
   - Switch to arch chroot 
 
-      `arch-chroot /mnt`
-  - 
-      `chmod +x post-chroot-base-install.sh`
+      ```arch-chroot /mnt```
+  - Install 
 
-      Run with `./post-chroot-base-install.sh`
+      ```chmod +x post-chroot-base-install.sh```
+
+      Run with ```./post-chroot-base-install.sh```
 
 
 
